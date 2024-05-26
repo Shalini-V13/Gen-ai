@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Register</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background: linear-gradient(#2a52be,#f00);
+      background-size: cover;
+      background-position: center;
+    }
+    .wrapper {
+      width: 420px;
+      background: transparent;
+      border: 2px solid rgba(255, 255, 255, .2);
+      backdrop-filter: blur(9px);
+      color: #fff;
+      border-radius: 12px;
+      padding: 30px 40px;
+    }
+    .wrapper h1 {
+      font-size: 36px;
+      text-align: center;
+    }
+    .input-box {
+      position: relative;
+      width: 100%;
+      height: 50px;
+      margin: 30px 0;
+    }
+    .input-box input, .input-box select {
+      width: calc(100% - 30px);
+      height: 100%;
+      background: transparent;
+      border: none;
+      outline: none;
+      border: 2px solid rgba(255, 255, 255, .2);
+      border-radius: 40px;
+      font-size: 16px;
+      color: #fff;
+      padding: 20px;
+    }
+    .input-box input::placeholder, .input-box select::placeholder {
+      color: #fff;
+    }
+    .input-box i {
+      position: absolute;
+      right: 15px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 20px;
+    }
+    .input-box select {
+      appearance: none;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      background-image: none; /* Remove the diamond symbol */
+      background-color: rgba(255, 255, 255, 0.1);
+      background-position: right 15px center;
+      color: #fff;
+    }
+    .input-box select::-ms-expand {
+      display: none;
+    }
+    .wrapper .btn {
+      width: 100%;
+      height: 45px;
+      background: #fff;
+      border: none;
+      outline: none;
+      border-radius: 40px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, .1);
+      cursor: pointer;
+      font-size: 16px;
+      color: #333;
+      font-weight: 600;
+      margin-top: 20px;
+    }
+    .wrapper .login-link {
+      font-size: 14.5px;
+      text-align: center;
+      margin-top: 20px;
+    }
+    .login-link p a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .login-link p a:hover {
+      text-decoration: underline;
+    }
+    .input-box .gender-options {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      height: 100%;
+    }
+    .input-box .gender-options label {
+      display: inline-block;
+      color: #fff;
+      margin-right: 15px;
+    }
+    .input-box .gender-options input[type="radio"] {
+      margin-right: 5px;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    <form action="{{ url_for('process_register') }}" method="POST">
+      <h1>Register</h1>
+      <div class="input-box">
+        <input type="text" placeholder="Username" required name="username">
+        <i class='bx bxs-user'></i>
+      </div>
+      <div class="input-box">
+        <input type="email" placeholder="Email" required name="email">
+        <i class='bx bxs-envelope'></i>
+      </div>
+      <div class="input-box">
+        <input type="password" placeholder="Password" required name="password">
+        <i class='bx bxs-lock-alt'></i>
+      </div>
+      <div class="input-box">
+        <input type="password" placeholder="Confirm Password" required name="confirm_password">
+        <i class='bx bxs-lock-alt'></i>
+      </div>
+      <div class="input-box">
+        <input type="number" placeholder="Age" required name="age">
+        <i class='bx bx-calendar'></i>
+      </div>
+      <div class="input-box">
+        <div class="gender-options">
+          <label><input type="radio" name="gender" value="male" required> Male</label>
+          <label><input type="radio" name="gender" value="female"> Female</label>
+          <label><input type="radio" name="gender" value="other"> Prefer not to say</label>
+        </div>
+      </div>
+      <button type="submit" class="btn">Register</button>
+      <div class="login-link">
+        <p>Already have an account? <a href="{{ url_for('login') }}">Login</a></p>
+      </div>
+    </form>
+  </div>
+</body>
+</html>

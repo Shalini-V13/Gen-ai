@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- <link rel="stylesheet" type="text/css" href="css/style.css"> -->
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Bad Script|oswald">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>MindCrafters</title>
+</head>
+
+<style>
+    /* CSS for the wave section */
+    section .wave {
+        margin: -1px 0 0 0;
+        padding: 0;
+        position: relative;
+        width: 100%;
+        height: 65vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: linear-gradient(#2a52be, #f00);
+        animation: waveAnimation 2s infinite alternate ease-in-out;
+    }
+
+    @keyframes waveAnimation {
+        0% {
+            transform: translateY(0);
+        }
+
+        100% {
+            transform: translateY(10px);
+        }
+    }
+
+    section .wave {
+        position: relative;
+        width: 700px;
+        margin: 0 auto;
+        text-align: center;
+    }
+
+    section .wave h1 {
+        color: #fff;
+        font-size: 3em;
+        position: absolute;
+        top: -190px;
+        left: 280px;
+    }
+
+    section svg {
+        position: absolute;
+        top: 60%;
+        left: 0;
+    }
+
+    .logo {
+        height: 70px;
+        position: absolute;
+        top: -150px;
+        left: 10px;
+        animation: pulseAnimation 2s infinite alternate ease-in-out;
+    }
+
+    @keyframes pulseAnimation {
+        0% {
+            transform: scale(1);
+        }
+
+        100% {
+            transform: scale(1.05);
+        }
+    }
+
+
+    /* CSS for the header */
+    nav ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        top: -150px;
+        right: -280px;
+        position: absolute;
+    }
+
+    nav ul li {
+        margin-right: 20px;
+        font-size: 18pt;
+    }
+
+    nav ul li a {
+        text-decoration: none;
+        color: #fac9c9;
+    }
+
+    nav ul li a:hover {
+        color: #48e6e6;
+        /* Lighter shade on hover */
+    }
+
+    nav ul li button {
+        /* Apply button styles */
+        padding: 10px 20px;
+        background-color: #fff;
+        border: none;
+        border-radius: 5px;
+        color: #2a52be;
+        font-size: 14px;
+        cursor: pointer;
+        position: relative;
+        top: -10px;
+        transition: background-color 0.3s ease;
+    }
+
+    nav ul li button:hover {
+        background-color: #48e6e6;
+        /* Lighter shade on hover */
+    }
+
+    /* CSS for containerA */
+    .containerA {
+        top: 480px;
+        /* Adjust the top position as needed */
+        margin-bottom: -30px;
+        border: 15px outset black;
+        background: linear-gradient(#50C878, #FFDAB9, #ff3399);
+        text-align: center;
+        left: 15px;
+        /* Adjust the distance from the left edge */
+        position: absolute;
+        width: 95%;
+        z-index: 1;
+        /* Ensure the container is above the slideshow */
+    }
+
+    .containerB {
+        top: 500px;
+        /* Adjust the top position as needed */
+        margin-bottom: -30px;
+        border: 15px outset black;
+        background: linear-gradient(#007B7D, #D4AF37);
+        text-align: center;
+        left: 15px;
+        /* Adjust the distance from the left edge */
+        position: absolute;
+        width: 95%;
+        z-index: 1;
+        /* Ensure the container is above the slideshow */
+    }
+
+    .containerC {
+        top: 800px;
+        /* Adjust the top position as needed */
+        margin-bottom: -30px;
+        border: 15px outset black;
+        background: linear-gradient(#B87333,#E6E6FA,#F4C2C2,#4B0082);
+        text-align: center;
+        left: 15px;
+        /* Adjust the distance from the left edge */
+        position: absolute;
+        width: 95%;
+        z-index: 1;
+        /* Ensure the container is above the slideshow */
+    }
+
+    .button {
+        font-size: 14pt;
+        padding: 15px 30px;
+        /* Increase button padding */
+        border: none;
+        border-radius: 5px;
+        background-color: #012657;
+        color: #fff;
+        cursor: pointer;
+        position: absolute;
+        /* Position the button absolutely */
+        right: 30px;
+        /* Align the button to the right */
+        top: 35px;
+        /* Adjust the vertical position */
+        transition: background-color 0.3s ease;
+    }
+
+    .button:hover {
+        background-color: #0053a3;
+    }
+
+    .cont_p {
+        margin-top: 30px;
+        /* Move the text down */
+        font-size: 20pt;
+        text-align: justify;
+        font-family: oswald;
+        padding: 0 25px;
+    }
+</style>
+
+<body>
+    <section>
+        <div class="wave">
+            <h1>Smart gen ai chatbot for mental wellness</h1>
+            <img src="{{ url_for('static', filename='images/logo.jpeg') }}" alt="Logo" class="logo" alt="Logo"
+                class="logo">
+            <!-- when link to flask comment above line and uncomment below line 
+            <img src="{{ url_for('static', filename='images/logo.jpeg') }}" alt="Logo" class="logo" alt="Logo" class="logo">-->
+            <nav>
+                <ul>
+                    <li><a href="{{ url_for('home') }}"><i class="fas fa-home"></i></a></li>
+                </ul>
+            </nav>
+        </div>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+            <path fill="#fff" fill-opacity="1"
+                d="M0,32L18.5,48C36.9,64,74,96,111,122.7C147.7,149,185,171,222,154.7C258.5,139,295,85,332,53.3C369.2,21,406,11,443,26.7C480,43,517,85,554,96C590.8,107,628,85,665,69.3C701.5,53,738,43,775,69.3C812.3,96,849,160,886,170.7C923.1,181,960,139,997,101.3C1033.8,64,1071,32,1108,16C1144.6,0,1182,0,1218,10.7C1255.4,21,1292,43,1329,53.3C1366.2,64,1403,64,1422,64L1440,64L1440,320L1421.5,320C1403.1,320,1366,320,1329,320C1292.3,320,1255,320,1218,320C1181.5,320,1145,320,1108,320C1070.8,320,1034,320,997,320C960,320,923,320,886,320C849.2,320,812,320,775,320C738.5,320,702,320,665,320C627.7,320,591,320,554,320C516.9,320,480,320,443,320C406.2,320,369,320,332,320C295.4,320,258,320,222,320C184.6,320,148,320,111,320C73.8,320,37,320,18,320L0,320Z">
+            </path>
+        </svg>
+    </section>
+
+    <div class="containerA">
+        <div class="cont_p">
+            <p>Embark on an adventure of self-discovery and growth. Dive into our curated collection of videos and start
+                your<br> journey towards a happier, more fulfilling life.</br></p>
+            <a href="https://youtu.be/G0M41N1Lyw4?si=Xnke927tIqg3VzXu" target="_blank"><button class="button"><i class="fas fa-play"></i> Get Inspired</button></a>
+        </div>
+    </div>
+
+    <div class="containerB">
+        <div class="cont_p">
+            <p> Discover a world of inspiration with our collection of motivational videos, designed to uplift your spirits and
+               <br> ignite your passion for personal growth.</br></p>
+            <a href="https://youtu.be/GCtQxghI_l0?si=1NE7EJ4KBTG1_HOX" target="_blank"><button class="button"><i class="fas fa-play"></i> Discover More</button></a>
+        </div>
+    </div>
+    <div class="containerC">
+        <div class="cont_p">
+            <p>Unlock your true potential with expert advice and insights. Explore our handpicked selection of videos on
+               <br> self-improvement and unleash the best version of yourself.</br></p>
+            <a href="https://youtu.be/_XLY_XXBQWE?si=vz_QxJDn_lmMkVEX" target="_blank"><button class="button"><i class="fas fa-play"></i> Start Exploring</button></a>
+        </div>
+    </div>
+</body>
+
+</html>

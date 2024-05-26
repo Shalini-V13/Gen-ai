@@ -1,0 +1,246 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mental Wellness Chatbot</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+<style>
+/* Global styles */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(to bottom, #6495ED, #FF6347);
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    display: flex;
+    width: 1200px; /* Increased width */
+    height: 600px;
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar {
+    width: 100px; /* Sidebar width */
+    border-right: 1px solid #ccc;
+}
+
+.chat-container {
+    flex: 1;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Chat history styles */
+#chat-history {
+    height: 400px; /* Increased height */
+    overflow-y: auto;
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+    scrollbar-width: thin; /* Set the width of the scrollbar */
+    scrollbar-color: #ccc transparent; /* Set the color of the scrollbar thumb */
+}
+
+/* Modern scrollbar thumb */
+#chat-history::-webkit-scrollbar-thumb {
+    background-color: #ccc; /* Set the color of the scrollbar thumb */
+    border-radius: 20px; /* Set the border radius of the scrollbar thumb */
+}
+
+/* Modern scrollbar track */
+#chat-history::-webkit-scrollbar-track {
+    background-color: transparent; /* Set the color of the scrollbar track */
+}
+
+/* Modern scrollbar corner */
+#chat-history::-webkit-scrollbar-corner {
+    display: none; /* Hide the scrollbar corner */
+}
+
+.message-container {
+    margin-bottom: 10px;
+    padding: 15px; /* Increased padding */
+}
+
+.user-message, .bot-message {
+    border-radius: 20px;
+    max-width: 70%;
+    word-wrap: break-word;
+    font-size: 16px;
+}
+
+.user-message {
+    background-color: #007bff;
+    color: #fff;
+    float: right;
+    clear: both;
+}
+
+.bot-message {
+    background-color: #FFA07A; /* Blush background color */
+    color: #333;
+    float: left;
+    clear: both;
+}
+
+/* User input styles */
+.input-container {
+    display: flex;
+    align-items: center;
+    border: 1px solid #78aaff; /* Blue border */
+    border-radius: 15px;
+    padding: 5px;
+}
+
+#user-input {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    border-radius: 15px;
+    outline: none;
+    background-color: #e0f0ff; /* Light blue background */
+}
+
+#send-button {
+    width: 80px;
+    padding: 10px;
+    background-color: #FF6347; /* Changed to red color */
+    color: #fff;
+    border: none;
+    border-radius: 0 15px 15px 0;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#send-button:hover {
+    background-color: #d43f3a; /* Darker shade of red on hover */
+}
+
+.timestamp {
+    font-size: 12px;
+    color: black; /* Changed to black color */
+    margin-bottom: 5px;
+    display: flex;
+    align-items: center;
+}
+
+.timestamp::after {
+    content: '\2713';
+    font-size: 10px;
+    margin-left: 5px;
+    color: black; /* Changed to black color */
+}
+
+.user-icon {
+    color: #007bff; /* User icon color */
+    margin-right: 5px;
+}
+
+.bot-icon {
+    color: #FFA07A; /* Bot icon color */
+    margin-right: 5px;
+}
+</style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="sidebar">
+            <div id="sidebar-chat-history">
+                <!-- Hidden input field to store chat history -->
+                <input type="hidden" id="chat-history-data" value="[]">
+            </div>
+        </div>
+        <div class="chat-container">
+            <h1>Mental Wellness Chatbot</h1>
+            <div id="chat-history">
+                <!-- Chat history will be displayed here -->
+            </div>
+            <div class="input-container">
+                <input type="text" id="user-input" placeholder="Type your message..." autocomplete="off">
+                <button id="send-button">Send</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var chatHistory = document.getElementById('chat-history');
+            var userInput = document.getElementById('user-input');
+            var sendButton = document.getElementById('send-button');
+        
+            // Load initial chat history from the hidden input field
+            var initialChatHistory = JSON.parse(document.getElementById('chat-history-data').value);
+            initialChatHistory.forEach(function(item) {
+                displayMessage(item.sender, item.message);
+            });
+        
+            sendButton.addEventListener('click', function() {
+                var userMessage = userInput.value.trim();
+                if (userMessage !== '') {
+                    displayMessage('You', userMessage, 'user');
+                    userInput.value = '';
+        
+                    // Send user message to server and receive bot's response
+                    fetch('/chatbot', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/x-www-form-urlencoded'
+                        },
+                        body: 'user-input=' + encodeURIComponent(userMessage)
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        // Update chat history with bot's response
+                        data.chat_history.forEach(function(item) {
+                            displayMessage(item.sender, item.message);
+                        });
+                    })
+                    .catch(error => console.error('Error:', error));
+                }
+            });
+        
+            function displayMessage(sender, message) {
+                var messageContainer = document.createElement('div');
+                var timestamp = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+                var messageElement = document.createElement('div');
+                var timestampElement = document.createElement('div');
+                
+                messageElement.textContent = message;
+                timestampElement.textContent = '[' + sender.toUpperCase() + '] ' + timestamp;
+                timestampElement.classList.add('timestamp');
+                messageContainer.classList.add('message-container');
+                
+                if (sender === 'You') {
+                    messageContainer.classList.add('user-message');
+                    messageContainer.innerHTML = `<i class="far fa-user user-icon"></i>${message}`;
+                    messageContainer.appendChild(timestampElement);
+                } else if(sender === 'model') {
+                    messageContainer.classList.add('bot-message');
+                    messageContainer.innerHTML = `<i class="fas fa-robot bot-icon"></i>${message}`;
+                    messageContainer.appendChild(timestampElement);
+                }
+                chatHistory.appendChild(messageContainer);
+                chatHistory.scrollTop = chatHistory.scrollHeight;
+            }
+        });
+        </script>
+
+</body>
+</html>

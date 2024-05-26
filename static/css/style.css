@@ -1,0 +1,381 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "poppins", sans-serif;
+  
+  }
+  
+  section {
+    margin: -1px 0 0 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+    height: 65vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(#2a52be, #f00);
+    /*background: linear-gradient(#f77bd8, rgb(106, 33, 173));*/
+  }
+  
+  section .wave {
+    position: relative;
+    width: 700px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  
+  section .wave h1 {
+    color: #fff;
+    font-size: 3em;
+    position: absolute;
+    top: -190px;
+    left: -200px;
+  }
+  
+  section svg {
+    position: absolute;
+    top: 60%;
+    left: 0;
+  }
+  
+  .logo {
+	margin: 0;
+	padding: 0;
+	font-family: "poppins",sans-serif;
+    
+}
+section {
+    margin: -1px 0 0 0;
+	padding: 0;
+	position: relative;
+	width: 100%;
+	height: 65vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background: linear-gradient(#2a52be,#f00);
+}
+section .wave {
+	position: relative;
+	width: 700px;
+	margin: 0 auto;
+	text-align: center;
+}
+section .wave h1 {
+	color: #fff;
+	font-size: 3em;
+	position: absolute;
+    top: -190px;
+    left: -200px;
+}
+section svg {
+	position: absolute;
+	top: 60%;
+	left: 0;
+}
+
+.logo{
+    height: 70px;
+    position: absolute;
+    top: -150px;
+    left: -300px;
+  }
+  
+  nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    top: -150px;
+    right: -280px;
+    position: absolute;
+  
+  }
+  
+  nav ul li {
+    margin-right: 20px;
+  }
+  
+  nav ul li a {
+    text-decoration: none;
+    color: #fff;
+  }
+  
+  nav ul li a:hover {
+    color: #48e6e6;
+    /* Lighter shade on hover */
+  }
+  
+  nav ul li button {
+    /* Apply button styles */
+    padding: 10px 20px;
+    background-color: #fff;
+    border: none;
+    border-radius: 5px;
+    color: #2a52be;
+    font-size: 14px;
+    cursor: pointer;
+    position: relative;
+    top: -10px;
+  }
+  
+  nav ul li button:hover {
+    background-color: #48e6e6;
+    /* Lighter shade on hover */
+  }
+  
+  @font-face {
+    font-family: 'Writing Creative';
+    /* Replace YourCustomFont with your desired font name */
+    src: url('Writing Creative.otf') format('opentype');
+    /* Adjust the path to your font file */
+  }
+  
+  .container {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+  
+  .paragraph {
+    background-color: #fff;
+    padding: 10px;
+    text-align: left;
+    margin-top: 20px;
+    position: relative;
+    top: -20px;
+    /* Adjust this value to properly position the paragraph */
+    left: 60px;
+    font-family: 'Bad Script';
+    /* Example font style */
+    font-weight: 100px;
+    font-size: 25px;
+    /* border: 5px solid;  Example border style 
+    /*border-color: #ff0000; /* Example border color (red) */
+    /*border-radius: 5px; /* Example border radius */
+    overflow: hidden;
+    /* Hide overflow */
+    width: calc(100% - 600px);
+    /* Adjust width to accommodate padding */
+  }
+  
+  .image {
+    position: relative;
+    height: 400px;
+    /* Adjust the height to your desired value */
+    width: auto;
+    /* Maintain the aspect ratio */
+    bottom: 0px;
+    left: 100px;
+    /* This value is missing units, should be like left: 100px */
+  
+  }
+  
+  /* SLIDE SHOW */
+  
+  #slideshow {
+    text-align: center;
+    overflow: hidden;
+    height: 510px;
+    width: 728px;
+    margin: 250px auto 0;
+    /*background-color: #ffffff;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 1.5);*/
+  }
+  
+  .slide-wrapper {
+    width: 3640px; /* Adjusted total width to accommodate all slides */
+    animation: slide 18s ease infinite;
+  }
+  
+  .slide {
+    float: left;
+    height: 510px;
+    width: 728px;
+    margin-top: 30px;
+  }
+  
+  .slide img {
+    max-width: 100%;
+    max-height: 100%;
+    
+  }
+  
+  @keyframes slide {
+    
+      20% {margin-left: 0px;}
+      30% {margin-left: -728px;}
+      50% {margin-left: -728px;}
+      60% {margin-left: -1456px;}
+      70% {margin-left: -1456px;}
+      80% {margin-left: -2184px;}
+      90% {margin-left: -2184px;}
+    }
+  .slideshow-container {
+    display: flex;
+    flex-direction: column; /* Align images vertically */
+    margin-top: -200px;
+    
+  }
+  
+  .slideshow-info {
+    padding: 0px;
+    background-color: #f0f0f0;
+    border-radius: 5px;
+    position: absolute;
+    top: calc(100% + 50px); /* Adjust the value as needed */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 95%;
+    
+  }
+  .slideshow-info p {
+    margin: 0; /* Remove default margin for paragraphs */
+    font-size: 14px; /* Adjust font size as needed */
+    
+  }
+  
+  .container-slide {
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin-bottom: 280px;
+  }
+  
+  .paragraph-slide {
+    background-color: #fff;
+    padding: 20px;
+    text-align: left;
+    font-family: 'Bad Script';
+    font-size: 20px;
+    width: 50%;
+    margin-right: 15px;
+    color:rgb(55, 2, 80);
+    margin-left: 35px;
+    margin-top: 170px;
+  }
+
+  .container-slide {
+    margin-bottom: 280px; /* Adjust the value to create space for the footer */
+}
+
+.containerA {
+    top: 40px; /* Adjust the top position as needed */
+    margin-bottom: -30px;
+    border: 15px outset black;
+    background: linear-gradient(#40E0D0, #FF6F61);    
+    text-align: center;
+    left: 15px; /* Adjust the distance from the left edge */
+    position: absolute;
+    width: 95%;
+    z-index: 1; /* Ensure the container is above the slideshow */
+}
+
+.button {
+    font-size: 14pt;
+    padding: 15px 30px; /* Increase button padding */
+    border: none;
+    border-radius: 5px;
+    background-color:#012657;
+    color: #fff;
+    cursor: pointer;
+    position: absolute; /* Position the button absolutely */
+    right: 30px; /* Align the button to the right */
+    top: 35px; /* Adjust the vertical position */
+}
+
+.cont_p {
+    margin-top: 30px; /* Move the text down */
+    font-size: 20pt;
+    text-align:justify;
+    font-family: oswald;
+    padding: 0 25px;
+}
+
+.containerB {
+  top: 1670px; 
+  margin-bottom: 30px;
+  border: 15px outset black;
+  background: linear-gradient(#40E0D0, #FF6F61);    
+  text-align: center;
+  left: 15px; 
+  position: absolute;
+  width: 95%;
+  z-index: 1; 
+}
+
+.button {
+  font-size: 14pt;
+  padding: 15px 30px; 
+  border: none;
+  border-radius: 5px;
+  background-color:#012657;
+  color: #fff;
+  cursor: pointer;
+  position: absolute; 
+  right: 30px; 
+  top: 35px; 
+}
+
+.cont_pa {
+  margin-top: 30px; 
+  font-size: 20pt;
+  text-align:justify;
+  font-family: oswald;
+  padding: 0 25px;
+}
+
+footer {
+    display: none; 
+    background-color: #e157ee; 
+    /* background-color: #22d649; */
+    color: #fff; 
+    padding: 20px; 
+    text-align: center; 
+    width: 100%; 
+    position: fixed; 
+    bottom: 0px; 
+    
+}
+
+.feedback-form {
+  background: linear-gradient(#a6caf0, #ffc0cb);
+  padding: 45px;
+    margin: 0 auto; 
+    max-width: 650px; 
+  margin-bottom: 150px;
+  border: 1px solid #ccc;
+}
+
+.feedback-form h2 {
+  margin-bottom: 19px;
+}
+
+.feedback-form label,
+.feedback-form input,
+.feedback-form textarea {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.feedback-form input,
+.feedback-form textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+}
+
+.feedback-form button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+.feedback-form button:hover {
+  background-color: #0056b3;
+}
+
+  

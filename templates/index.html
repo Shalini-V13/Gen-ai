@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- <link rel="stylesheet" type="text/css" href="css/style.css"> -->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Bad Script|oswald">
+    <title>MindCrafters</title>
+</head>
+<script>
+    window.addEventListener("scroll", function () {
+        var footer = document.querySelector("footer");
+        var scrollPosition = window.scrollY;
+        var windowHeight = window.innerHeight;
+        var bodyHeight = document.body.offsetHeight;
+
+        if ((scrollPosition + windowHeight) >= bodyHeight) {
+            footer.style.display = "block"; 
+        } else {
+            footer.style.display = "none"; 
+        }
+    });
+</script>
+
+<body>
+
+    <section>
+        <div class="wave">
+            <h1>Smart gen ai chatbot for<br /> mental wellness</h1>
+            <img src="{{ url_for('static', filename='images/logo.jpeg') }}" alt="Logo" class="logo" alt="Logo"
+                class="logo">
+            <nav>
+                <ul>
+                    <li><a href="{{ url_for('home') }}">Home</a></li>
+                    <li><a href="#About">About Us</a></li>
+                    <li><a href="{{ url_for('home') }}">Help</a></li>
+                    <li><a href="{{ url_for('login') }}"><button id="loginButton">Login/Signup</button></a></li>
+
+                </ul>
+            </nav>
+        </div>
+        <?xml version="1.0" standalone="no"?>
+
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+            <path fill="#fff" fill-opacity="1"
+                d="M0,32L18.5,48C36.9,64,74,96,111,122.7C147.7,149,185,171,222,154.7C258.5,139,295,85,332,53.3C369.2,21,406,11,443,26.7C480,43,517,85,554,96C590.8,107,628,85,665,69.3C701.5,53,738,43,775,69.3C812.3,96,849,160,886,170.7C923.1,181,960,139,997,101.3C1033.8,64,1071,32,1108,16C1144.6,0,1182,0,1218,10.7C1255.4,21,1292,43,1329,53.3C1366.2,64,1403,64,1422,64L1440,64L1440,320L1421.5,320C1403.1,320,1366,320,1329,320C1292.3,320,1255,320,1218,320C1181.5,320,1145,320,1108,320C1070.8,320,1034,320,997,320C960,320,923,320,886,320C849.2,320,812,320,775,320C738.5,320,702,320,665,320C627.7,320,591,320,554,320C516.9,320,480,320,443,320C406.2,320,369,320,332,320C295.4,320,258,320,222,320C184.6,320,148,320,111,320C73.8,320,37,320,18,320L0,320Z">
+            </path>
+        </svg>
+    </section>
+
+    <div class="container">
+        <div class="paragraph">
+            <p><b>At MindCrafters, a groundbreaking final year project spearheaded by students of Dr. AIT, we're
+                    revolutionizing mental wellness. Through the innovative use of AI chatbots, we offer a personalized
+                    journey
+                    towards mental well-being. Our chatbots aren't just listeners; they're compassionate companions on
+                    your path
+                    to self-discovery. In our safe and confidential space, you can freely explore your thoughts and
+                    emotions,
+                    knowing you're understood. With a passion for innovation and a dedication to your well-being, we're
+                    committed to crafting a brighter tomorrow, one chat at a time.</b></p>
+        </div>
+        <div class="image">
+            <img src="{{ url_for('static', filename='images/robo.png') }}" alt="robo" class="image">
+        </div>
+    </div>
+    <svg width="100%" height="10" viewBox="0 0 100 10" preserveAspectRatio="none">
+        <path fill="none" stroke="#000" stroke-width="2" d="M0 5 Q 25 -5, 50 5 Q 75 15, 100 5" />
+    </svg>
+
+    <div class="container-slide">
+        <div class="paragraph-slide">
+                <h2><b>About Us</b></h2>
+                <p><b>The "Smart Gen AI for Mental Wellness" initiative is designed to tackle these challenges 
+                    head-on. By providing a platform that is both affordable and easily accessible, it ensures 
+                    that mental health support is available to a broader audience. The use of AI-driven 
+                    chatbots offers an immediate and anonymous means for individuals to engage in 
+                    conversations about their mental health, thereby reducing the stigma associated with 
+                    seeking help. Additionally, the integration of personality assessments allows for personalized care, 
+                    catering to the unique needs of each use</b></p>
+        </div>
+
+        <div class="containerA">
+            <div class="cont_p">
+                <p>Ready to embark on a journey of self-discovery? Click 'Get Started' below to connect with our<br> AI
+                    chatbot, your personal companion for mental wellness.</p>
+                <a href="{{ url_for('login') }}"><button class="button">Get Started</button></a>
+            </div>
+        </div>
+        <!--Slide show-->
+        <div id="slideshow">
+            <div class="slide-wrapper">
+                <div class="slide">
+                    <img src="{{ url_for('static', filename='images/bot1.png') }}" alt="bot1"
+                        style="width: 400px; height: 280px;">
+                    <div class="text"><b>Generative AI offers 24/7 mental health support,<br> bridging critical gaps in traditional care.</b></div>
+                </div>
+                <div class="slide">
+                    <img src="{{ url_for('static', filename='images/bot2.jpg') }}" alt="bot2"
+                        style="width: 400px; height: 280px;">
+                    <div class="text"><b>AI can complement therapy,<br>offering personalized mental health support anytime, anywhere.</b></div>
+                </div>
+                <div class="slide">
+                    <img src="{{ url_for('static', filename='images/bot3.jpg') }}" alt="bot3"
+                        style="width: 400px; height: 280px;">
+                    <div class="text"><b>AI chatbots provide a non-judgmental space,<br>reducing the stigma of seeking mental health help.</b></div>
+                </div>
+                <div class="slide">
+                    <img src="{{ url_for('static', filename='images/bot4.jpg') }}" alt="bot4"
+                        style="width: 400px; height: 280px;">
+                    <div class="text"><b>AI can't replace therapists but can complement<br>them by providing accessible emotional support.</b></div>
+                </div>
+                 <!--Add more img-container divs with images and text if needed -->
+            </div>
+        </div>
+
+    </div>
+    <div class="containerB">
+        <div class="cont_pa">
+            <p>Welcome to our "Mindfulness Lounge"! Click here to explore a wealth of articles, engaging<br> videos, and fun
+                relaxation games to help you unwind and discover something new. </p>
+            <a href="{{ url_for('community') }}"><button class="button">Let's dive in!</button></a>
+        </div>
+    </div>
+    <div class="feedback-form">
+        <h2>🚀 Boost Us with Your Ideas! 🚀</h2>
+        <form action="https://api.web3forms.com/submit" method="POST">
+            <input type="hidden" name="access_key" value="10cf5f92-bb96-413d-b2ca-a71529f44186">
+
+            <label for="name"><b>Your Name:</b></label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email"><b>Your Email:</b></label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="feedback"><b>Share Your Brilliance:</b></label>
+            <textarea id="feedback" name="feedback" rows="4" required></textarea>
+
+            <button type="submit"><b>Send Your Genius Insights</b></button>
+        </form>
+      </div>
+      
+
+    <footer>
+        <p>&copy; Smart Gen AI Chatbot for mental wellness.</p>
+    </footer>
+
+
+
+
+
+</body>
+
+</html>
